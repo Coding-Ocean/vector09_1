@@ -2,7 +2,8 @@
 void gmain() {
     window(1000, 1000);
     float x, y, r;
-    float s, c;
+    float s, c, t;
+    float tx, ty;
     while (notQuit) {
         clear(0, 50, 0);
         mathAxis(3.1f,255);
@@ -13,6 +14,10 @@ void gmain() {
         r = sqrt(x * x + y * y);
         c = x / r;
         s = y / r;
+        //tanƒÆ‚ğ‹‚ß‚é
+        t = y / x;
+        tx = s  * t;
+        ty = -c * t;
         //Œ³‚ÌƒxƒNƒgƒ‹‚ğ•`‰æ
         strokeWeight(4);
         stroke(128);
@@ -30,6 +35,9 @@ void gmain() {
         //sinƒÆ‚ğ•`‰æ
         stroke(255, 200, 200);
         mathLine(c, 0, c, s);
+        //tanƒÆ‚ğ•`‰æ
+        stroke(255, 255, 200);
+        mathLine(c, s, c+tx, s+ty);
     }
 }
 
